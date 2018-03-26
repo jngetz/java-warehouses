@@ -26,21 +26,6 @@ public class OrderReceipt {
 	System.out.println("Total Profit: " + this.totalProfit);
 	System.out.println("----------------------------------------");
     }
-
-    public static void main(String[] args) {
-	OrderReceipt order = new OrderReceipt();
-	for(int j = 4; j < 20; j += 5){
-	    ItemReceipt receipt = new ItemReceipt(j - 4);
-	    for(int i = 1; i < 15; i++){
-		Warehouse warehouse = new Warehouse(i);
-		Item item = new Item(j-4, i, 0, j-i, 0);
-		warehouse.addItem(item);
-		receipt.addPurchase(warehouse, 15-i);
-	    }
-	    order.addItemReceipt(receipt);
-	}
-	order.print();
-    }
 }
 
 
