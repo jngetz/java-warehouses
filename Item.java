@@ -34,7 +34,7 @@ public class Item {
 
   // print function
   public String toString() {
-    return ID+", "+CS+", "+MS+", "+PPI+", "+CBMS+"\n";
+    return "<"+ID+", "+CS+", "+MS+", "+PPI+", "+CBMS+">";
   }
 
   // get/set
@@ -100,7 +100,7 @@ public class Item {
     else {
       next = PPI;
     }
-    return PPI;
+    return next;
   }
 
   /*
