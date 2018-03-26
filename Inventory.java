@@ -64,4 +64,17 @@ public class Inventory {
 	}
 	return receipt;
     }
+  public ArrayList<Warehouse> getItems(int id) {
+    ArrayList<Warehouse> newlist = new ArrayList<Warehouse>();
+    for (Warehouse wh : inventory) {
+      Item item = wh.get(id);
+      if (item.ID != -1) {
+        int count = 0;
+          count++;
+        while(item.profitNextBuy() < wh.getIndex(count)) {
+        }
+        newlist.add(count, wh);
+      }
+    }
+  }
 }
