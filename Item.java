@@ -39,10 +39,10 @@ public class Item {
 
   // get/set
   public int getCS() {
-    return ID;
+    return CS;
   }
   public void setCS(int i) {
-    ID = i;
+    CS = i;
   }
   public int getMS() {
     return MS;

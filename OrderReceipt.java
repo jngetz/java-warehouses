@@ -8,7 +8,7 @@ public class OrderReceipt {
 	totalProfit = 0;
 	items = new ArrayList<ItemReceipt>(0);
     }
-    
+
     public void addItemReceipt(ItemReceipt item){
 	this.totalProfit = this.totalProfit + item.totalProfit;
 	this.items.add(item);
@@ -23,9 +23,7 @@ public class OrderReceipt {
 	    this.items.get(i).print();
 	    System.out.println("--------------");
 	}
-	System.out.println("Total Profit: " + this.totalProfit);
+	System.out.println("Total Profit: $" + this.totalProfit);
 	System.out.println("----------------------------------------");
     }
 }
-
-
