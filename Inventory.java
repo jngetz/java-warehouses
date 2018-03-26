@@ -77,4 +77,14 @@ public class Inventory {
       }
     }
   }
+  public int getAllItem(int id) {
+    int sum = 0;
+    for (Warehouse : inventory) {
+      Item item = wh.get(id);
+      if (item.ID != -1) {
+        sum += item.getCS();
+      }
+    }
+    return sum;
+  }
 }
