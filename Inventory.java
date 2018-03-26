@@ -46,6 +46,30 @@ public class Inventory {
 	return rv;
     }
 
+    public void printWarnings() {
+	boolean warning = false;
+	for(Warehouse wh : this.inventory) {
+	    boolean whWarning = false;
+	    for(Item item : wh.inventory) {
+		if(item.getCS() < item.getMS()){
+		    if(!warning){
+			System.out.println("---------------------------------");
+			System.out.println("Items are below minimum stock");
+			System.out.println("---------------------------------");
+		    }
+		    if(!whWarning){
+			System.out.println("---------------------------------");
+			System.out.println("Warehouse " + wh.ID + " Shortages");
+		    }
+		    System.out.println("Item " + item.ID);
+		}
+	    }
+	    if(!whWarning){
+		System.out.println("---------------------------------");
+	    }
+	}
+    }
+    
     public OrderReceipt fillOrder(ArrayList<IntPair> order) {
 	OrderReceipt receipt = new OrderReceipt();
 	for(IntPair request : order){
@@ -64,17 +88,19 @@ public class Inventory {
 	}
 	return receipt;
     }
-  public ArrayList<Warehouse> getItems(int id) {
-    ArrayList<Warehouse> newlist = new ArrayList<Warehouse>();
-    for (Warehouse wh : inventory) {
-      Item item = wh.get(id);
-      if (item.ID != -1) {
-        int count = 0;
-          count++;
-        while(item.profitNextBuy() < wh.getIndex(count)) {
-        }
-        newlist.add(count, wh);
-      }
+    
+    public ArrayList<Warehouse> getItems(int id) {
+	ArrayList<Warehouse> newlist = new ArrayList<Warehouse>();
+	for (Warehouse wh : inventory) {
+	    Item item = wh.get(id);
+	    if (item.ID != -1) {
+		int count = 0;
+		count++;
+		while(item.profitNextBuy() < wh.getIndex(count)) {
+		}
+		newlist.add(count, wh);
+	    }
+	}
     }
   }
   public int getAllItem(int id) {
